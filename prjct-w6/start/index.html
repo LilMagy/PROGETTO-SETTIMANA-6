@@ -29,9 +29,15 @@
           </button>
           <div class="collapse navbar-collapse" id="menuPrincipale">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="#studio">Studio</a></li>
-              <li class="nav-item"><a class="nav-link" href="#servizi">Servizi</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="#studio">Studio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#servizi">Servizi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contatti">Contatti</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -47,8 +53,8 @@
         <div class="container px-5 px-md-3">
           <h1 class="fw-semibold mb-2">Architettura per spazi che parlano</h1>
           <p class="mb-4">
-            Progettiamo case, uffici e spazi commerciali con attenzione alla luce, ai
-            materiali e al contesto.
+            Progettiamo case, uffici e spazi commerciali con attenzione alla
+            luce, ai materiali e al contesto.
           </p>
           <a href="#contatti" class="btn btn-primary">Inizia un progetto</a>
         </div>
@@ -66,10 +72,12 @@
               <article class="card card-servizio h-100 text-center">
                 <div class="card-body p-4">
                   <div class="servizio-icona mb-3" aria-hidden="true">🏠</div>
-                  <h3 class="card-title h5 fw-bold">Progettazione residenziale</h3>
+                  <h3 class="card-title h5 fw-bold">
+                    Progettazione residenziale
+                  </h3>
                   <p class="card-text text-secondary small mb-0">
-                    Case private, ville e ristrutturazioni domestiche, dal sopralluogo
-                    alla consegna delle chiavi.
+                    Case private, ville e ristrutturazioni domestiche, dal
+                    sopralluogo alla consegna delle chiavi.
                   </p>
                 </div>
               </article>
@@ -80,8 +88,8 @@
                   <div class="servizio-icona mb-3" aria-hidden="true">🪑</div>
                   <h3 class="card-title h5 fw-bold">Interior design</h3>
                   <p class="card-text text-secondary small mb-0">
-                    Allestimenti d'interno per case e uffici, con materiali selezionati
-                    e arredo su misura.
+                    Allestimenti d'interno per case e uffici, con materiali
+                    selezionati e arredo su misura.
                   </p>
                 </div>
               </article>
@@ -102,12 +110,96 @@
         </div>
       </section>
 
+      <section id="lavori">
+        <h3 class="fs-4 fw-bold text-center mb-4">Seleziona una o più etichette</h3>
+        <div
+          id="filtri"
+          class="d-flex justify-content-around mx-auto"
+          style="max-width: 600px"
+        >
+          <button class="tag btn btn-primary">Vista Mare</button>
+          <button class="tag btn btn-primary">Attico</button>
+          <button class="tag btn btn-primary">Giardino</button>
+          <button class="tag btn btn-primary">Depandanche</button>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-servizio h-100 text-center">
+              <div class="card-body p-4">
+                <img
+                  class="img-fluid"
+                  src="assets/img/holder.png"
+                  alt="Casa vista mare"
+                />
+                <h3 class="card-title h5 fw-bold" style="line-height: 2">
+                  Casa vista mare
+                </h3>
+                <p class="card-text text-secondary small mb-0">
+                  Bollate, NA, 2026.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-servizio h-100 text-center">
+              <div class="card-body p-4">
+                <img
+                  class="img-fluid"
+                  src="assets/img/holder.png"
+                  alt="Casa vista mare"
+                />
+                <h3 class="card-title h5 fw-bold" style="line-height: 2">
+                  Attico metropolitano
+                </h3>
+                <p class="card-text text-secondary small mb-0">
+                  Roma, RO, 2026.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-servizio h-100 text-center">
+              <div class="card-body p-4">
+                <img
+                  class="img-fluid"
+                  src="assets/img/holder.png"
+                  alt="Cottage di montagna"
+                />
+                <h3 class="card-title h5 fw-bold" style="line-height: 2">
+                  Cottage di montagna
+                </h3>
+                <p class="card-text text-secondary small mb-0">
+                  Aosta, AO, 2026.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <!-- Contatti: form con larghezza limitata e centrato -->
-      <section id="contatti" class="bg-light py-5">
+      <!-- Overlay: nascosto di default (d-none), lo script lo mostra al click -->
+      <section
+        id="contatti"
+        class="d-none position-fixed top-0 start-0 w-100 h-100 overflow-auto z-3 py-5 bg-dark bg-opacity-75"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titoloContatti"
+      >
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6">
-              <h2 class="fs-4 fw-bold text-center">Contattaci</h2>
+            <div
+              class="col-12 col-md-8 col-lg-6 bg-light rounded p-4 position-relative"
+            >
+              <button
+                type="button"
+                class="btn-close position-absolute top-0 end-0 m-3"
+                id="chiudiContatti"
+                aria-label="Chiudi"
+              ></button>
+              <h2 id="titoloContatti" class="fs-4 fw-bold text-center">
+                Contattaci
+              </h2>
               <p class="text-center text-secondary small mb-4">
                 Compila il form, ti rispondiamo entro 48 ore.
               </p>
@@ -152,7 +244,9 @@
                     rows="5"
                   ></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Invia</button>
+                <button type="submit" class="btn btn-primary w-100">
+                  Invia
+                </button>
               </form>
             </div>
           </div>
@@ -166,7 +260,9 @@
         <div class="row g-4">
           <div class="col-12 col-md-4">
             <h3 class="h6 fw-bold">Atelier</h3>
-            <p class="mb-0">Studio di architettura<br />Via dei Pioppi 12, Milano</p>
+            <p class="mb-0">
+              Studio di architettura<br />Via dei Pioppi 12, Milano
+            </p>
           </div>
           <div class="col-12 col-md-4">
             <h3 class="h6 fw-bold">Link</h3>
@@ -179,13 +275,16 @@
           <div class="col-12 col-md-4">
             <h3 class="h6 fw-bold">Contatti</h3>
             <p class="mb-0">
-              <a href="mailto:info@atelier.example">info@atelier.example</a><br />
+              <a href="mailto:info@atelier.example">info@atelier.example</a
+              ><br />
               <a href="tel:+390200001111">+39 02 0000 1111</a>
             </p>
           </div>
         </div>
         <hr class="my-4" />
-        <p class="text-center mb-0">© 2026 Atelier — tutti i diritti riservati</p>
+        <p class="text-center mb-0">
+          © 2026 Atelier — tutti i diritti riservati
+        </p>
       </div>
     </footer>
 
