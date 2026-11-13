@@ -1,0 +1,151 @@
+// Atelier — Week Project Settimana VI
+// Compila con:  npx sass --style=compressed style.scss css/style.min.css
+// (il file css/ va caricato DOPO Bootstrap, vedi index.html)
+
+//  Variabili 
+$brand-primary:    hsl(20, 30%, 35%);   // bottoni, hero, testo "primary"
+$brand-secondary:  hsl(20, 20%, 15%);   // navbar, footer, testo principale
+$brand-hover:      hsl(20, 30%, 27%);   // hover bottoni
+$brand-light:      #fafafa;
+$footer-hover:     hsl(40, 30%, 90%);   // hover link navbar/footer
+$radius-base:      8px;
+$shadow-card:      0 2px 6px rgba(0, 0, 0, 0.08);
+$shadow-card-hover: 0 10px 24px rgba(0, 0, 0, 0.12);
+
+//  Mixin 
+@mixin card-elevata($shadow: $shadow-card, $shadow-hover: $shadow-card-hover) {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: $radius-base;
+  box-shadow: $shadow;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+    transform: translateY(-4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+  }
+}
+
+//  Override classi Bootstrap 
+.btn-primary,
+.bg-primary {
+  background-color: $brand-primary !important;
+  border-color: $brand-primary !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: $brand-hover !important;
+  border-color: $brand-hover !important;
+}
+
+.text-primary {
+  color: $brand-primary !important;
+}
+
+.btn-outline-primary {
+  color: $brand-primary;
+  border-color: $brand-primary;
+
+  &:hover,
+  &.active {
+    background-color: $brand-primary;
+    color: white;
+    border-color: $brand-primary;
+  }
+}
+
+//  Base 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem; // evita che la navbar sticky copra i titoli
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  --bs-body-color: #{$brand-secondary};
+  background-color: $brand-light;
+  color: $brand-secondary;
+}
+
+//  Header sticky 
+.nav-atelier {
+  background-color: $brand-secondary;
+
+  .nav-link {
+    font-size: 0.875rem;
+
+    &:hover,
+    &:focus {
+      color: $footer-hover;
+    }
+  }
+}
+
+//  Hero 
+.hero {
+  min-height: 80vh;
+
+  p {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+//  Servizi 
+.card-servizio {
+  @include card-elevata;
+  background-color: white;
+
+  .servizio-icona {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+}
+
+// Contatti 
+#contatti {
+  .form-control:focus,
+  .form-select:focus {
+    border-color: $brand-primary;
+    box-shadow: 0 0 0 0.25rem rgba($brand-primary, 0.25);
+  }
+}
+
+// Footer
+.footer-atelier {
+  background-color: $brand-secondary;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+
+  h3 {
+    color: white;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $footer-hover;
+    }
+  }
+
+  hr {
+    border-top-color: rgba(255, 255, 255, 0.15);
+    opacity: 1;
+  }
+}
